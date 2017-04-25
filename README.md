@@ -1,2 +1,2 @@
 # Reddicted
-A time management app for people who are addicted to reddit
+A time management app for people who are addicted to Reddit
