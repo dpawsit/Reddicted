@@ -1,8 +1,8 @@
 import React from 'react';
-import {render} from 'react-dom';
-import PostList from './postList.jsx'
+import PostList from './PostList'
 import axios from 'axios';
-import SignIn from './SignIn.jsx'
+import SignIn from './SignIn'
+import Bar from './Navbar'
 
 class App extends React.Component {
 	constructor(props) {
@@ -71,11 +71,7 @@ class App extends React.Component {
 	  	if(this.state.user) {
 		    return(
 		    	<div>
-			    	<button onClick ={()=> {
-			    		this.handleLogOut()
-			    	}}>
-			    	Logout
-			    	</button>
+						<Bar handleLogOut =  {this.handleLogOut} />
 			      <p> Welcome back {this.state.user}!</p>
 			    	<form onSubmit={this.handleSubmit}>
 			        <label>
@@ -104,4 +100,4 @@ class App extends React.Component {
 	}
 }
 
-render(<App/>, document.getElementById('app'));
+export default App

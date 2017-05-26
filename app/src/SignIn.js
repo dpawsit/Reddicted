@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux'
+import getUserInfo from './actions/app_actions'
 
 class SignIn extends React.Component {
 
@@ -31,6 +33,7 @@ class SignIn extends React.Component {
   }
 
   handleLogin (event) {
+    console.log('props', this.props)
     var context = this;
     axios.post('/login', {
       username: context.state.username,
@@ -38,7 +41,7 @@ class SignIn extends React.Component {
     })
     .then(function(response) {
       console.log('response in handlelogin', response)
-      context.props.signIn(response.data);
+      context.props.getUserInfo(response.data);
     }) 
     .catch(function(error){
       console.log('error in handlelogin', error)
@@ -46,12 +49,14 @@ class SignIn extends React.Component {
   }
 
   handleUserChange (event) {
+    event.preventDefault()
     this.setState({
       username: event.target.value
     })
   }
 
   handlePassChange (event) {
+    event.preventDefault()
     this.setState({
       password: event.target.value
     })
@@ -90,4 +95,8 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+function mapStateToProps({ appState }) {
+	return { username: appState.username };
+}
+
+export default connect(mapStateToProps, {getUserInfo})(SignIn)

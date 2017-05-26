@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Post from './post.jsx';
+import Post from './Post';
 
 class PostList extends React.Component {
 
