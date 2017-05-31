@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Post from './Post';
+import { connect } from 'react-redux'
+
 
 class PostList extends React.Component {
 
@@ -131,8 +133,6 @@ class PostList extends React.Component {
     if(this.state.called) {
       filteredNum = <p>{this.state.denied} elements removed for NSFW material</p>
     } 
-    console.log('current state data is', this.state.data)
-    console.log('linktime is', this.state.linkTime);
     if(this.state.saved) {
       return (
         <div>
@@ -191,4 +191,8 @@ class PostList extends React.Component {
   }
 }
 
-export default PostList;
+function mapStateToProps({ appState }) {
+	return { username: appState.username };
+}
+
+export default connect (mapStateToProps, {})(PostList);

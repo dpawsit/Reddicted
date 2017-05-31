@@ -1,15 +1,17 @@
-import { USER_LOGIN } from '../actions/app_actions'
+import { USER_LOGIN, USER_LOGOUT} from '../actions/app_actions'
 
 const INITIAL_STATE = {
-  username: ''
+  username: null
 };
 
 export default function (state = INITIAL_STATE, action) {
   switch(action.type) {
 
     case USER_LOGIN:
-      console.log('got called with', action.payload)
       return{...state, username: action.payload.username}
+
+    case USER_LOGOUT:
+      return{...state, username: null}
 
     default: return state
   }

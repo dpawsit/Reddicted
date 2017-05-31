@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { connect } from 'react-redux'
+import { userLogout } from './actions/app_actions'
 
 
 class Bar extends Component {
@@ -24,7 +25,7 @@ class Bar extends Component {
             <NavItem className="navHeaders" eventKey={2} onClick={this.props.renderGroupList}><span className="navItems">My Saved Messages</span></NavItem>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={6} onClick={this.props.handleLogOut} href="#"><span className="navItems">Log out</span></NavItem>
+            <NavItem eventKey={6} onClick={this.props.userLogout} href="#"><span className="navItems">Log out</span></NavItem>
           </Nav>
       </Navbar>
     )
@@ -35,4 +36,4 @@ function mapStateToProps({ appState }) {
 	return { username: appState.username };
 }
 
-export default connect(mapStateToProps)(Bar);
+export default connect(mapStateToProps, {userLogout})(Bar);

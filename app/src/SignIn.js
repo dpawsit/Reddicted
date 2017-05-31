@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux'
-import getUserInfo from './actions/app_actions'
+import { getUserInfo } from './actions/app_actions'
 
 class SignIn extends React.Component {
 
@@ -33,7 +33,8 @@ class SignIn extends React.Component {
   }
 
   handleLogin (event) {
-    console.log('props', this.props)
+    //no internet testing
+    // this.props.getUserInfo('daniel')
     var context = this;
     axios.post('/login', {
       username: context.state.username,
@@ -64,6 +65,8 @@ class SignIn extends React.Component {
 
 
   render() {
+    // const { from } = this.props.location.state || { from: { pathname: '/' } }
+
     return (
       <div>
         <form>
@@ -75,7 +78,7 @@ class SignIn extends React.Component {
         <form>
           <label>
             Password:
-            <input type="text" value={this.state.password} onChange={this.handlePassChange} />
+            <input type="password" value={this.state.password} onChange={this.handlePassChange} />
           </label>
         </form>
         <button 
