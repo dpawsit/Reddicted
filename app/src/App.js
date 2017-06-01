@@ -44,8 +44,6 @@ class App extends React.Component {
         <div>
           welcome to reddicted
           yadda yadda
-          <Link to="/login">Sign in or sign up!</Link>
-          <Link to="/dash">Get groovy</Link>
           <Route path = '/login' component={SignIn}/>
           <Route path = '/dash' render= {()=>{
             console.log('this.', this.props.username)
@@ -56,6 +54,10 @@ class App extends React.Component {
               pathname: '/login'
             }}/>)
           }} />
+          <div>
+            <Link to="/login">Sign in or sign up!</Link> {/*could also be sign out*/}
+            <Link to="/dash">Get groovy</Link>
+          </div>
         </div>
       </Router>
     )

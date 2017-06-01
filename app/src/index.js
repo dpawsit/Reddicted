@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 import ReduxPromise from 'redux-promise';
 import { persistStore, autoRehydrate, storages } from 'redux-persist'
 import reducers from './reducers';
+import { Router, browserHistory } from 'react-router'
+import routes from './routes'
+
 
 // injectTapEventPlugin();
 
